@@ -10,7 +10,7 @@
   </head>
   <body>
     <header>
-      <h1>Chef and EC2</h1>
+      <h1><a href="#slide_1">Chef &amp; EC2</a></h1>
     </header>
     <section id="slides">
       <article id="slide_1">
@@ -23,18 +23,25 @@
             Chef is a <mark>configuration management system</mark>.
           </p>
           <p>
-            A configuration management system is software used for installing and
-            configuring software on a computer.
+            This means: software used for installing and configuring software on
+            (multiple) computers.
           </p>
           <p>
-            These computers are usually servers. You could,
+            Usually servers. You could,
             however, use it to configure e.g. desktops in an office, or even
             mobile devices.
           </p>
 
+          <p>
+            Chef is written in Ruby, and you use it by writing Ruby.
+          </p>
+
           <h2>Other configuration management systems:</h2>
           <ul>
-            <li><a href="http://www.puppetlabs.com/">Puppet</a></li>
+            <li><a href="http://www.puppetlabs.com/">Puppet</a>: specific DSL
+              (not Ruby).</li>
+            <li><a href="http://www.cfengine.org/">Cfengine</a>: I've heard it's
+              nasty.</li>
           </ul>
         </div>
 
@@ -43,19 +50,77 @@
 
       <article id="slide_2">
         <header>
-          <h1>Chef: benefits</h1>
+          <h1>Chef: why?</h1>
+        </header>
+
+        <div>
+          <h2>Why use a configuration management system?</h2>
+          <ul>
+            <li>Reproducibility: servers fail. Disks have a shelf-life, fire, bugs, attacks etc.</li>
+            <li>Configuration, installed packages difficult to remember.</li>
+            <li>Manual configuration is slow and unreliable.</li>
+            <li>Automatic configuration of some sort becomes necessary at
+              high-scale e.g. SSH</li>
+          </ul>
+
+          <h2>Why use Chef?</h2>
+          <ul>
+            <li>Good for Rubyists</li>
+            <li>Opscode Platform means you don't <em>need</em> to worry about server</li>
+            <li>Open source (Apache license)</li>
+            <li>Growing user base</li>
+            <li>Libraries to copy and learn from e.g. <a
+                href="https://github.com/37signals/37s_cookbooks">37s</a></li>
+          </ul>
+
+          <h2>Why not use Chef?</h2>
+          <ul>
+            <li>A simpler system will do the job e.g.
+              <a href="http://heroku.com">Heroku</a> (EC2),
+              <a href="http://www.engineyard.com/">Engine Yard</a> (Chef),
+              <a href="http://www.rightscale.com/">Right Scale</a> (Chef),
+              AMIs</li>
+            <li>Steep learning curve (especially if also learning Ruby)</li>
+            <li>Small(ish) user base</li>
+            <li>Annoying analogy</li>
+            <li>You're <a
+                href="http://eirikp.files.wordpress.com/2008/09/richard_stallman_saintignucius.jpg">Richard
+                Stallman</a></li>
+          </ul>
+        </div>
+
+        <footer>
+          <nav>
+            <p>
+              <a href="#slide_1">« Previous</a>
+              <a href="#slide_3">Next »</a>
+            </p>
+          </nav>
+        </footer>
+      </article>
+
+      <article id="slide_3">
+        <header>
+          <h1>EC2 &amp; Chef</h1>
         </header>
 
         <div>
           <p>
-            It defo does stuff.
+            EC2 is Amazon's virtual machine platform. It gives you the power to
+            provision virtual servers on-demand, programmatically.
           </p>
           <p>
-            It does stuff.
+            It's a good complement to Chef, because:
           </p>
+          <ul>
+            <li>Servers can be quickly provisioned</li>
+            <li>AMIs let you start from a saved point to save time (see <a
+                href="http://www.camelpunch.com/web-development/tutorials/opscode-chef/ec2-chef-create-custom-ubuntu-ami-ree/">my
+                tutorial on setting up REE</a>)</li>
+          </ul>
         </div>
 
-        <footer><nav><p><a href="#slide_1">« Previous</a></p></nav></footer>
+        <footer><nav><p><a href="#slide_2">« Previous</a></p></nav></footer>
       </article>
     </section>
   </body>

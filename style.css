@@ -1,5 +1,4 @@
 body {
-  font-size:120%;
   overflow-x:hidden;
   color:#444;
   font-family:"Helvetica Neue";
@@ -38,13 +37,23 @@ body>header p a {
 em {
   font-style:italic;
 }
+code {
+  font-family:courier;
+}
 li {
   list-style-type:disc;
   margin-left:2em;
 }
+abbr {
+  cursor:help;
+}
 a {
   color:blue;
   white-space:nowrap;
+  text-decoration:none;
+}
+a:hover {
+  text-decoration:underline;
 }
 h1 {
   font-family:"Hobo Std";
@@ -53,7 +62,7 @@ h1 {
 article {
   font-size:138.5%;
 }
-h2 {
+h2, dt {
   font-weight:bold;
 }
 
@@ -83,6 +92,7 @@ h2 {
   padding-top:1em;
 }
 #slides>article>div {
+  min-height:10em;
   background:#fff;
   padding:20px;
   border-radius:.5em;
@@ -93,11 +103,14 @@ h2 {
   position:relative;
 }
 #slides>article>div p,
+#slides>article>div dd,
 #slides>article>div h2,
 #slides>article>div ul {
   padding:0 0 1em 0;
 }
 #slides>article>div p:hover,
+#slides>article>div dt:hover,
+#slides>article>div dt:hover+dd,
 #slides>article>div>ul>li:hover,
 #slides>article>div h2:hover {
   color:#000;

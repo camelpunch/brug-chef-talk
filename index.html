@@ -11,7 +11,11 @@
   <body>
     <header>
       <div>
-        <h1><a href="#slide_1">Chef &amp; EC2</a></h1>
+        <h1>
+          <a href="#slide_1">Chef &amp;
+            <abbr title="Elastic Compute Cloud">EC2</abbr>
+          </a>
+        </h1>
         <p>
           <a href="http://blog.andrewbruce.net/">Andrew Bruce</a>, <a href="http://www.camelpunch.com/">Camel Punch</a>
         </p>
@@ -43,10 +47,11 @@
 
           <h2>Other configuration management systems:</h2>
           <ul>
-            <li><a href="http://www.puppetlabs.com/">Puppet</a>: specific DSL
-              (not Ruby).</li>
-            <li><a href="http://www.cfengine.org/">Cfengine</a>: I've heard it's
-              nasty.</li>
+            <li><a href="http://www.puppetlabs.com/">Puppet</a>: specific <abbr
+                title="Domain Specific Language">DSL</abbr>
+              (not Ruby), widespread use.</li>
+            <li><a href="http://www.cfengine.org/">Cfengine</a>: older,
+              widespread use.</li>
           </ul>
         </div>
 
@@ -67,6 +72,8 @@
             <li>Automatic configuration of some sort becomes necessary at
               high-scale e.g. SSH scripts</li>
             <li>Can keep configuration in version control</li>
+            <li><a
+                href="http://computer.yourdictionary.com/idempotent">Idempotency</a></li>
           </ul>
 
           <h2>Why use Chef?</h2>
@@ -77,6 +84,7 @@
             <li>Growing user base</li>
             <li>Libraries to copy and learn from e.g. <a
                 href="https://github.com/37signals/37s_cookbooks">37s</a></li>
+            <li>Can abstract configuration away from operating system type</li>
           </ul>
 
           <h2>Why not use Chef?</h2>
@@ -86,16 +94,17 @@
                 <li><a href="http://heroku.com">Heroku</a> (Chef, EC2)</li>
                 <li><a href="http://www.engineyard.com/">Engine Yard</a> (Chef)</li>
                 <li><a href="http://www.rightscale.com/">Right Scale</a> (Chef),</li>
-                <li>AMIs</li>
+                <li><abbr title="Amazon Machine Images">AMIs</abbr></li>
               </ul>
             </li>
             <li>Steep learning curve (especially if also learning Ruby)</li>
             <li>Documentation a bit tricky and wiki-like (improving)</li>
             <li>Small(ish) user base</li>
             <li>Weak analogy</li>
-            <li>You're <a
-                href="http://eirikp.files.wordpress.com/2008/09/richard_stallman_saintignucius.jpg">Richard
-                Stallman</a></li>
+            <li>You're Richard Stallman <a
+                href="http://eirikp.files.wordpress.com/2008/09/richard_stallman_saintignucius.jpg"><img height="300"
+              src="http://eirikp.files.wordpress.com/2008/09/richard_stallman_saintignucius.jpg"
+              alt="Richard Stallman" /></a></li>
           </ul>
         </div>
 
@@ -124,13 +133,13 @@
           </p>
           <ul>
             <li>Historically data storage on EC2 less reliable than bare metal
-              server</li>
+              server (but you shouldn't care so much about disk storage anyway)</li>
             <li>Servers can be quickly provisioned (good for testing configs,
               recovering from failure)</li>
             <li>AMIs let you start from a saved point to save time (see <a
                 href="http://www.camelpunch.com/web-development/tutorials/opscode-chef/ec2-chef-create-custom-ubuntu-ami-ree/">my
                 tutorial on setting up REE</a>)</li>
-            <li>Support for instance data</li>
+            <li>Support for instance data booting</li>
           </ul>
         </div>
 
@@ -139,6 +148,184 @@
             <p>
               <a href="#slide_2">« Previous</a>
               <a href="#slide_4">Next »</a>
+            </p>
+          </nav>
+        </footer>
+      </article>
+
+      <article id="slide_4">
+        <header>
+          <h1>Why I use Chef &amp; EC2</h1>
+        </header>
+
+        <div>
+          <h2>EC2</h2>
+          <ul>
+            <li>Used to use raw Xen, difficult to manage and had a disaster. </li>
+            <li>Wanted to learn something new.</li>
+            <li>Possibly cheaper than using a service, depending on how much I
+              end up hosting (but large time investment learning).</li>
+            <li>Can run custom software, complete control.</li>
+            <li>Cheap experiments and temporary servers.</li>
+          </ul>
+
+          <h2>Chef</h2>
+          <ul>
+            <li>Interest</li>
+            <li>I have a bad memory</li>
+            <li>Easily upgrade base operating system</li>
+            <li>More ready to scale apps when they need i/, can choose scaling
+              approach (versus e.g. Heroku)</li>
+            <li>Better than reconfiguring AMIs</li>
+            <li>Cheaper than hiring a monkey</li>
+          </ul>
+        </div>
+
+        <footer>
+          <nav>
+            <p>
+              <a href="#slide_3">« Previous</a>
+              <a href="#slide_5">Next »</a>
+            </p>
+          </nav>
+        </footer>
+      </article>
+
+      <article id="slide_5">
+        <header>
+          <h1>Vocabulary</h1>
+        </header>
+
+        <div>
+          <p><a href="http://wiki.opscode.com/display/chef/Documentation">Lots
+                of it.</a></p>
+          <dl>
+            <dt>Client</a></dt>
+            <dd>Something running chef-client.</dd>
+
+            <dt>Node</dt>
+            <dd>Usually a single machine.</dd>
+
+            <dt>Recipe</dt>
+            <dd>Like 'scripts' you'd write in <abbr title="Bourne Again SHell">BASH</abbr>.
+              Use Resources to configure the Node.
+            </dd>
+
+            <dt>Resource</dt>
+            <dd>Usually use built-ins e.g. <code>cron</code>,
+              <code>package</code>, <code>template</code></dd>
+
+            <dt>Definition</dt>
+            <dd>A 'fake' Resource, collection of other Resources (used to stay <abbr
+                title="Don't Repeat Yourself">DRY</abbr>).</dd>
+
+            <dt>Cookbook</dt>
+            <dd>Collection of Recipes, Definitions, Libraries, Attributes,
+              Files, Providers, Resources, Templates, metadata</dd>
+
+            <dt>Data bag</dt>
+            <dd>Place to stick data</dd>
+          </dl>
+        </div>
+
+        <footer>
+          <nav>
+            <p>
+              <a href="#slide_4">« Previous</a>
+              <a href="#slide_6">Next »</a>
+            </p>
+          </nav>
+        </footer>
+      </article>
+
+      <article id="slide_6">
+        <header>
+          <h1>Deploying Rails</h1>
+        </header>
+
+        <div>
+          <p><a
+              href="http://wiki.opscode.com/display/chef/Deploy+Resource">Deploy
+              Resource</a> a bit like <a
+              href="http://capify.org/">Capistrano</a>, but has its disadvantages:
+          </p>
+          <ul>
+            <li>Not great for sites that need synchronised migration &amp; code deployments
+              on multiple servers</li>
+            <li>Updates only when <code>chef-client</code> is run (which could be immediate
+              with a script, but usually e.g. 30 minute interval)</li>
+            <li>Perhaps better to use <code>template</code>,
+              <code>directory</code> etc. and then use Capistrano</li>
+          </ul>
+        </div>
+
+        <footer>
+          <nav>
+            <p>
+              <a href="#slide_5">« Previous</a>
+              <a href="#slide_7">Next »</a>
+            </p>
+          </nav>
+        </footer>
+      </article>
+
+      <article id="slide_7">
+        <header>
+          <h1>Gotchas</h1>
+        </header>
+
+        <div>
+          <h2>Not well used in low-scale</h2>
+          <p>
+            Many recipes written under assumption that you want one service
+            per node e.g. Solr.
+          </p>
+          <h2>Maturity</h2>
+          <p>Had problems with <code>knife ec2 server create</code>. Supposedly it's improved.
+            Easy enough to write <a
+              href="https://github.com/camelpunch/aws_maintenance">own
+              scripts</a>.
+          </p>
+
+          <h2>Security</h2>
+          <p>Where to put passwords, deploy keys etc? Encrypted data bags.</p>
+          <p>If attacker can access Chef and your server manages multiple
+            nodes&hellip;?</p>
+
+          <h2>Git repo</h2>
+          <p>
+            Seems common to use monolithic repo e.g. 37s. I prefer one (private)
+            repo with many submodules, which can be published when ready.
+          </p>
+
+          <h2>Organisation of cookbooks</h2>
+          <p>Node attributes versus data bags (can be put into version control):
+            choice paralysis / too easy to get it wrong first time?</p>
+
+          <h2>Testing</h2>
+          <p>When testing with EC2, slow to find out your recipe is broken. Even
+            slower to test first install.
+          </p>
+          <p>Solutions? <abbr title="Ubuntu Enterprise Cloud">UEC</abbr> / VMware / use a faster
+          server when testing.</p>
+          <p>From test driven development, feels wrong to <em>just write</em>
+            recipes.</p>
+          <p>
+            Should reserve time to do failovers / fresh installs regularly (to
+            test recipes).
+          </p>
+
+          <h2>Third parties</h2>
+          <p>Many third party recipes aren't ready off-the-shelf, require
+            reading / modifying of source code beforehand (probably a good
+            thing!)</p>
+        </div>
+
+        <footer>
+          <nav>
+            <p>
+              <a href="#slide_6">« Previous</a>
+              <a href="#slide_8">Next »</a>
             </p>
           </nav>
         </footer>

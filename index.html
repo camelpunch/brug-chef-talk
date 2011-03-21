@@ -10,12 +10,17 @@
   </head>
   <body>
     <header>
-      <h1><a href="#slide_1">Chef &amp; EC2</a></h1>
+      <div>
+        <h1><a href="#slide_1">Chef &amp; EC2</a></h1>
+        <p>
+          <a href="http://blog.andrewbruce.net/">Andrew Bruce</a>, <a href="http://www.camelpunch.com/">Camel Punch</a>
+        </p>
+      </div>
     </header>
     <section id="slides">
       <article id="slide_1">
         <header>
-          <h1>Chef: what?</h1>
+          <h1>Chef: que?</h1>
         </header>
 
         <div>
@@ -56,11 +61,12 @@
         <div>
           <h2>Why use a configuration management system?</h2>
           <ul>
-            <li>Reproducibility: servers fail. Disks have a shelf-life, fire, bugs, attacks etc.</li>
+            <li>Reproducibility: servers fail.</li>
             <li>Configuration, installed packages difficult to remember.</li>
             <li>Manual configuration is slow and unreliable.</li>
             <li>Automatic configuration of some sort becomes necessary at
-              high-scale e.g. SSH</li>
+              high-scale e.g. SSH scripts</li>
+            <li>Can keep configuration in version control</li>
           </ul>
 
           <h2>Why use Chef?</h2>
@@ -75,14 +81,18 @@
 
           <h2>Why not use Chef?</h2>
           <ul>
-            <li>A simpler system will do the job e.g.
-              <a href="http://heroku.com">Heroku</a> (EC2),
-              <a href="http://www.engineyard.com/">Engine Yard</a> (Chef),
-              <a href="http://www.rightscale.com/">Right Scale</a> (Chef),
-              AMIs</li>
+            <li>If a simpler system will do the job e.g.
+              <ul>
+                <li><a href="http://heroku.com">Heroku</a> (Chef, EC2)</li>
+                <li><a href="http://www.engineyard.com/">Engine Yard</a> (Chef)</li>
+                <li><a href="http://www.rightscale.com/">Right Scale</a> (Chef),</li>
+                <li>AMIs</li>
+              </ul>
+            </li>
             <li>Steep learning curve (especially if also learning Ruby)</li>
+            <li>Documentation a bit tricky and wiki-like (improving)</li>
             <li>Small(ish) user base</li>
-            <li>Annoying analogy</li>
+            <li>Weak analogy</li>
             <li>You're <a
                 href="http://eirikp.files.wordpress.com/2008/09/richard_stallman_saintignucius.jpg">Richard
                 Stallman</a></li>
@@ -110,17 +120,28 @@
             provision virtual servers on-demand, programmatically.
           </p>
           <p>
-            It's a good complement to Chef, because:
+            It's a good to use Chef with EC2, because:
           </p>
           <ul>
-            <li>Servers can be quickly provisioned</li>
+            <li>Historically data storage on EC2 less reliable than bare metal
+              server</li>
+            <li>Servers can be quickly provisioned (good for testing configs,
+              recovering from failure)</li>
             <li>AMIs let you start from a saved point to save time (see <a
                 href="http://www.camelpunch.com/web-development/tutorials/opscode-chef/ec2-chef-create-custom-ubuntu-ami-ree/">my
                 tutorial on setting up REE</a>)</li>
+            <li>Support for instance data</li>
           </ul>
         </div>
 
-        <footer><nav><p><a href="#slide_2">« Previous</a></p></nav></footer>
+        <footer>
+          <nav>
+            <p>
+              <a href="#slide_2">« Previous</a>
+              <a href="#slide_4">Next »</a>
+            </p>
+          </nav>
+        </footer>
       </article>
     </section>
   </body>

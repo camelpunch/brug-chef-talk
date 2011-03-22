@@ -108,7 +108,7 @@ h2, dt {
 #slides>article>div ul {
   padding:0 0 1em 0;
 }
-#slides>article>div p:hover,
+#slides>article>div>p:hover,
 #slides>article>div dt:hover,
 #slides>article>div dt:hover+dd,
 #slides>article>div>ul>li:hover,
@@ -120,6 +120,15 @@ h2, dt {
   background:#ffa;
   box-shadow:.1em .5em .5em #999;
   border-radius:.1em;
+}
+#slides>article li img {
+  display:none;
+}
+#slides>article li:hover img {
+  display:block;
+}
+#slides>article img:hover {
+  -webkit-transform: scale(3);
 }
 #slides>article>footer nav p {
   float:right;

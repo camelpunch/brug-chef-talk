@@ -47,11 +47,15 @@
 
           <h2>Other configuration management systems:</h2>
           <ul>
-            <li><a href="http://www.puppetlabs.com/">Puppet</a>: specific <abbr
+            <li><a href="http://www.puppetlabs.com/">Puppet</a>: <abbr
                 title="Domain Specific Language">DSL</abbr>
-              (not Ruby), widespread use.</li>
+              not Ruby (but written in Ruby), widespread use.</li>
             <li><a href="http://www.cfengine.org/">Cfengine</a>: older,
               widespread use.</li>
+            <li><a href="http://sourceforge.net/apps/trac/etch/wiki">Etch</a>:
+              <abbr title="GNU General Public License">GPL</abbr>, Ruby. Mainly for managing config files.</li>
+            <li><a
+                href="http://en.wikipedia.org/wiki/Comparison_of_open_source_configuration_management_software">Others</a></li>
           </ul>
         </div>
 
@@ -91,11 +95,14 @@
           <ul>
             <li>If a simpler system will do the job e.g.
               <ul>
-                <li><a href="http://heroku.com">Heroku</a> (Chef, EC2)</li>
-                <li><a href="http://www.engineyard.com/">Engine Yard</a> (Chef)</li>
-                <li><a href="http://www.rightscale.com/">Right Scale</a> (Chef),</li>
+                <li><a href="http://heroku.com">Heroku</a></li>
+                <li><a href="http://www.engineyard.com/">Engine Yard</a></li>
+                <li><a href="http://www.rightscale.com/">Right Scale</a></li>
                 <li><abbr title="Amazon Machine Images">AMIs</abbr></li>
               </ul>
+              <p>
+                The first three all use Chef and EC2!
+              </p>
             </li>
             <li>Steep learning curve (especially if also learning Ruby)</li>
             <li>Documentation a bit tricky and wiki-like (improving)</li>
@@ -172,12 +179,14 @@
           <h2>Chef</h2>
           <ul>
             <li>Interest</li>
+            <li>Frustration with using AMIs</li>
             <li>I have a bad memory</li>
             <li>Easily upgrade base operating system</li>
-            <li>More ready to scale apps when they need i/, can choose scaling
+            <li>More ready to scale apps when they need it, can choose scaling
               approach (versus e.g. Heroku)</li>
-            <li>Better than reconfiguring AMIs</li>
-            <li>Cheaper than hiring a monkey</li>
+            <li>Cheaper than hiring a monkey
+            <img src="http://www.ipod.org.uk/reality/reality_chimp2.jpg"
+            alt="primates in the cloud" /></li>
           </ul>
         </div>
 
@@ -306,7 +315,8 @@
           <p>When testing with EC2, slow to find out your recipe is broken. Even
             slower to test first install.
           </p>
-          <p>Solutions? <abbr title="Ubuntu Enterprise Cloud">UEC</abbr> / VMware / use a faster
+          <p>Solutions? <a
+              href="http://www.ubuntu.com/business/cloud/overview">UEC</a> / VMware / use a faster
           server when testing.</p>
           <p>From test driven development, feels wrong to <em>just write</em>
             recipes.</p>
@@ -326,6 +336,26 @@
             <p>
               <a href="#slide_6">« Previous</a>
               <a href="#slide_8">Next »</a>
+            </p>
+          </nav>
+        </footer>
+      </article>
+
+      <article id="slide_8">
+        <header>
+          <h1>Think about it.</h1>
+        </header>
+
+        <div>
+          <img
+          src="http://screenrant.com/wp-content/uploads/conan-directors1.jpg"
+          alt="Conan thinking" />
+        </div>
+
+        <footer>
+          <nav>
+            <p>
+              <a href="#slide_0">Start again</a>
             </p>
           </nav>
         </footer>
